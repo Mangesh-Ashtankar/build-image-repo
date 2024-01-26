@@ -8,6 +8,9 @@ env:
 phases:
   pre_build:
     commands:
+        - echo Entered the pre_build phase...
+        - echo "Hello World" > /tmp/hello-world
+        - codebuild-breakpoint
         - echo Logging in to Amazon ECR...
         - echo ${SECRETS}
         - export AWS_ACCOUNT_ID=$(echo $SECRETS | jq -r '.AWS_ACCOUNT_ID')
